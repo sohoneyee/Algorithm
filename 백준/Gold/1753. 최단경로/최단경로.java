@@ -29,8 +29,8 @@ public class Main {
 		StringTokenizer st;
 		st = new StringTokenizer(br.readLine());
 
-		int n = Integer.parseInt(st.nextToken());
-		int m = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(st.nextToken()); // 전체 노드의 개수
+		int m = Integer.parseInt(st.nextToken()); // 간선의 수
 
 		int start = Integer.parseInt(br.readLine());
 
@@ -45,13 +45,13 @@ public class Main {
 			int w = Integer.parseInt(st.nextToken());
 
 			list[v].add(new Node(e, w));
-		}
+		} // 인접리스트 초기화 및 입력 완료
 
 		PriorityQueue<Node> pq = new PriorityQueue<>();
 		boolean[] visited = new boolean[n + 1];
 		int[] dist = new int[n + 1];
 		Arrays.fill(dist, Integer.MAX_VALUE);
-		dist[start] = 0;
+		dist[start] = 0; // 시작점까지의 거리는 0
 
 		pq.add(new Node(start, 0));
 		while (!pq.isEmpty()) {
@@ -64,7 +64,8 @@ public class Main {
 			for (Node node : list[now]) {
 				if (dist[node.index] > dist[now] + node.cost) {
 					dist[node.index] = dist[now] + node.cost;
-
+                    
+                    // dist가 갱신되었을 때만 pq에 넣어줘야 하므로 if문 안!
 					pq.add(new Node(node.index, dist[node.index]));
 				}
 			}
