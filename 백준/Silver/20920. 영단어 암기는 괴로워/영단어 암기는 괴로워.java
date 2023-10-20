@@ -25,7 +25,7 @@ public class Main {
 		Map<String, Integer> map = new TreeMap<>();
 		for (int i = 0; i < n; i++) {
 			String str = br.readLine();
-			if (str.length() < m)
+			if (str.length() < m) // 길이가 m 이상이면 애초에 map에 담지 않기!
 				continue;
 			map.put(str, map.getOrDefault(str, 0) + 1);
 		}
