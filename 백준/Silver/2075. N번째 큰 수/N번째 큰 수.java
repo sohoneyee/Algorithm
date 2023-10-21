@@ -17,7 +17,7 @@ public class Main {
 				return o2 - o1; // 내림차순
 			}
 		});
-		
+
 		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < n; j++) {
@@ -30,8 +30,10 @@ public class Main {
 			pq.poll();
 			n--;
 		}
-		
-		System.out.println(pq.poll());
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(pq.poll());
+		System.out.println(sb);
 
 	} // main
 }
