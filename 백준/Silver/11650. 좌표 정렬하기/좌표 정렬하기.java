@@ -28,10 +28,13 @@ public class Main {
 			}
 		});
 
+		StringBuilder sb = new StringBuilder();
 		for (int[] arr : coor) {
 			for (int k : arr)
-				System.out.print(k + " ");
-			System.out.println();
+				sb.append(k).append(" ");
+			sb.append("\n");
 		}
+		System.out.println(sb);
+		
 	} // main
 }
