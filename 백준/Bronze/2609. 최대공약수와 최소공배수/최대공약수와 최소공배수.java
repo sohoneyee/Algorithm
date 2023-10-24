@@ -12,7 +12,7 @@ public class Main {
 		int b = Integer.parseInt(st.nextToken());
 
 		int gcd = 0; // 최대공약수
-		int lcm = Math.min(a, b); // 최소공배수
+		int lcm = a; // 최소공배수, 최소공배수는 a나 b를 약수로 함(필수)
 		for (int i = Math.min(a, b); i >= 1; i--) {
 			if (a % i == 0 && b % i == 0) {
 				gcd = i;
@@ -20,7 +20,8 @@ public class Main {
 			}
 		}
 
-		lcm *= Math.max(a, b) / gcd;
+		// a*b = lcm*gcd -> lcm = a*(b/gcd)
+		lcm *= b / gcd;
 
 		System.out.println(gcd);
 		System.out.println(lcm);
