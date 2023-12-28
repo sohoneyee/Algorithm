@@ -10,6 +10,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
 		int n = Integer.parseInt(br.readLine());
 		Map<String, Integer> map = new TreeMap<>();
 		for (int i = 0; i < n; i++) {
@@ -19,10 +20,12 @@ public class Main {
 			if (map.containsKey(ex)) map.put(ex, map.get(ex) + 1);
 			else map.put(ex, 1);
 		}
-		for (String key : map.keySet()) {
+		Iterator<String> it = map.keySet().iterator();
+		while (it.hasNext()) {
+			String key = it.next();
 			int value = map.get(key);
-			System.out.print(key + " " + value);
-			System.out.println();
+			sb.append(key).append(" ").append(value).append("\n");
 		}
+		System.out.println(sb);
 	} // main
 }
